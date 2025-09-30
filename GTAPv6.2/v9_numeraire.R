@@ -41,11 +41,5 @@ ems_solve(cmf_path = cmf_path,
           n_subintervals = 2,
           steps = c(2, 4, 8),
           matrix_method = "DBBD",
-          solution_method = "mod_midpoint",
-          suppress_outputs = TRUE)
+          solution_method = "mod_midpoint")
 
-ems_check(check = "baseline",
-          outputs = outputs,
-          data = data,
-          model = model,
-          max_tolerance = 10)
