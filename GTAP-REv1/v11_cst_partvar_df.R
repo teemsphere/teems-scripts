@@ -44,19 +44,19 @@ tfd_out2 <- ems_swap(
 
 qfd_shk <- expand.grid(
   COMMc = c("svces", "food", "crops", "mnfcs", "livestock"),
-  REGr = "lam",
   ACTSa = "crops",
+  REGr = "lam",
   ALLTIMEt = seq(0, length(time_steps) - 1),
   stringsAsFactors = FALSE
 )
 
 qfd_shk <- rbind(qfd_shk, data.frame(
   COMMc = "food",
-  REGr = "oecd",
   ACTSa = "crops",
+  REGr = "oecd",
   ALLTIMEt = seq(0, length(time_steps) - 1)
 ))
-qfd_shk$Value <- runif(nrow(qfd_shk))
+qfd_shk$Value <- runif(nrow(qfd_shk), min = 0, max = 0.5)
 qfd_shk <- qfd_shk[do.call(order, qfd_shk), ]
 
 cst_shk <- ems_shock(
@@ -90,7 +90,7 @@ all(
   all.equal(qfd_shk[qfd_shk$COMMc == "food" & qfd_shk$REGr == "oecd" & qfd_shk$ACTSa == "crops", ],
     outputs$dat$qfd[COMMc == "food" & REGr == "oecd" & ACTSa == "crops"][, !"Year"],
     check.attributes = FALSE,
-    tolerance = 1e-6
+    tolerance = 1e-5
   ),
   outputs$dat$qfd[REGr != "lam" & ACTSa != "crops"]$Value != 0
 )

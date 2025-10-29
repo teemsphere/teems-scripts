@@ -26,8 +26,8 @@ cmf_path <- ems_deploy(
   data = data,
   model = model,
   shock = qfd_shk,
-  swap_in = "qfd",
-  swap_out = "tfd"
+  swap_in = c("qfd", "yp"),
+  swap_out = c("tfd", "dppriv")
 )
 
 outputs <- ems_solve(

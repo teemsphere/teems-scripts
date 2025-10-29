@@ -8,7 +8,7 @@ data <- ems_data(
   COMM = "macro_sector",
   ACTS = "macro_sector",
   ENDW = "labor_agg",
-  time_steps = c(0, 1, 2, 3, 4, 6, 8, 10, 12, 14, 16)
+  time_steps = c(2017, 2018, 2019, 2020, 2021, 2023, 2025, 2027, 2029, 2031, 2033)
 )
 
 model <- ems_model(
