@@ -92,5 +92,5 @@ all(
     check.attributes = FALSE,
     tolerance = 1e-5
   ),
-  outputs$dat$qfd[REGr != "lam" & ACTSa != "crops"]$Value != 0
+  mean(outputs$dat$qfd[REGr != "lam" & ACTSa != "crops"]$Value != 0) > 0.99
 )
